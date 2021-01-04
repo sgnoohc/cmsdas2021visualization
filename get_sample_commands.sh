@@ -8,6 +8,7 @@ if [ -z $1 ]; then
     echo "Usage:"
     echo "   $0 LPCUSERNAME"
     echo ""
+    exit
 fi
 export LPCUSERNAME=${1}
 echo "Running kinit..."
