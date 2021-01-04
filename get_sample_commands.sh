@@ -10,6 +10,7 @@ if [ -z $1 ]; then
     echo ""
 fi
 export LPCUSERNAME=${1}
+echo "Running kinit..."
 kinit ${LPCUSERNAME}@FNAL.GOV
 mkdir rootfiles
 scp ${LPCUSERNAME}@cmslpc-sl7.fnal.gov:"/eos/uscms/store/user/cmsdas/2020/short_exercises/Visualization/dy.root" rootfiles/
