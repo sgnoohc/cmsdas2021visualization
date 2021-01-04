@@ -11,9 +11,15 @@ if [ -z $1 ]; then
     exit
 fi
 export LPCUSERNAME=${1}
-echo "Running kinit..."
-kinit ${LPCUSERNAME}@FNAL.GOV
-mkdir rootfiles
+PRINCIPAL=$(klist | grep Principal | grep FNAL.GOV)
+while [ -z "${PRINCIPAL}" ]; do
+    echo "No kerberos ticket found!"
+    echo "Running kinit..."
+    kinit ${LPCUSERNAME}@FNAL.GOV
+    PRINCIPAL=$(klist | grep Principal | grep FNAL.GOV)
+done
+# PRINCIPAL=$(klist | grep Principal | grep FNAL.GOV)
+mkdir -p rootfiles
 scp ${LPCUSERNAME}@cmslpc-sl7.fnal.gov:"/eos/uscms/store/user/cmsdas/2020/short_exercises/Visualization/dy.root" rootfiles/
 scp ${LPCUSERNAME}@cmslpc-sl7.fnal.gov:"/eos/uscms/store/user/cmsdas/2020/short_exercises/Visualization/ggh4l.root" rootfiles/
 scp ${LPCUSERNAME}@cmslpc-sl7.fnal.gov:"/eos/uscms/store/user/cmsdas/2020/short_exercises/Visualization/ttjets.root" rootfiles/
