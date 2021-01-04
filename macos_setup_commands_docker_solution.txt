@@ -7,4 +7,5 @@
 docker pull sgnoohc/fireworks:9.4.1
 git clone https://github.com/sgnoohc/cmsdas2021visualization.git
 cd cmsdas2021visualization
+sh get_sample_commands.sh YOUR_LPC_USERNAME
 ./cmsShowDocker rootfiles/dy.root
