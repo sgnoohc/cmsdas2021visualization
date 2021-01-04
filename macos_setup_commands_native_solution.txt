@@ -1,0 +1,8 @@
+git clone https://github.com/sgnoohc/cmsdas2021visualization.git
+cd cmsdas2021visualization
+CMSDASDIR=$(pwd)
+curl http://xrd-cache-1.t2.ucsd.edu/alja/fireworks-9.4-1.highsierra.sparseimage.bz2 | bzcat >fireworks-9.4-1.highsierra.sparseimage
+hdiutil attach fireworks-9.4-1.highsierra.sparseimage
+cd /Volumes/Fireworks
+ln -s ${CMSDASDIR}/rootfiles .
+./cmsShow --no-version-check rootfiles/dy.root
