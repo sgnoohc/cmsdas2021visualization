@@ -1,16 +1,16 @@
 #!/bin/bash
 
-## To copy all the root files to your laptop, do
-#if [ -z $1 ]; then
-#    echo "==================================================="
-#    echo " Script to download Fireworks exercise root files."
-#    echo "==================================================="
-#    echo "Usage:"
-#    echo "   $0 LPCUSERNAME"
-#    echo ""
-#    exit
-#fi
-#export LPCUSERNAME=${1}
+# To copy all the root files to your laptop, do
+if [ -z $1 ]; then
+    echo "==================================================="
+    echo " Script to download Fireworks exercise root files."
+    echo "==================================================="
+    echo "Usage:"
+    echo "   $0 LPCUSERNAME"
+    echo ""
+    exit
+fi
+export LPCUSERNAME=${1}
 #PRINCIPAL=$(klist | grep Principal | grep FNAL.GOV)
 #while [ -z "${PRINCIPAL}" ]; do
 #    echo "No kerberos ticket found!"
